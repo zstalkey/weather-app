@@ -5,18 +5,19 @@ import ComplaintForm from '../components/organisms/ComplaintForm';
 import PageTemplate from '../components/templates/PageTemplate';
 import { CURRENT_WEATHER } from '../data/mockWeather';
 
-const WeatherPage = () => {
+const ComplaintPage = (city, temperature, changeCity, forecast, ...props) => {
     return (
+
         <PageTemplate
             city={CURRENT_WEATHER.name}
             temperature={CURRENT_WEATHER.main.temp}
-            changeCity={() => console.log('Change the city!')}
+            changeCity={changeCity}
         >
-            <TextLink>I changed my mind!</TextLink>
             <WeatherPerson />
             <ComplaintForm />
+            <TextLink>I changed my mind!</TextLink>
         </PageTemplate>
     );
 };
 
-export default WeatherPage;
+export default ComplaintPage;
