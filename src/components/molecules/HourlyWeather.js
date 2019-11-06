@@ -1,13 +1,19 @@
 import React from 'react';
-import WeatherIcon from '../atoms/WeatherIcon';
+import HourlyWeatherItem from './HourlyWeatherItem';
 
-const HourlyWeather = ({ time, weathericon, maxTemp, ...props }) => {
+const HourlyWeather = ({ list, ...props }) => {
     return (
-        <li>
-            <div>{time}</div>
-            <WeatherIcon icon={weathericon} />
-            <div>{maxTemp}</div>
-        </li>
+        <ul>
+            {list.map(item => (
+                <HourlyWeatherItem
+                    key={item.dt}
+                    //time={moment(item.dt).format('ha')}
+                    time={item.dt}
+                    icon={item.weather[0].icon}
+                    maxTemp={item.main.temp_max}
+                />
+            ))}
+        </ul>
     );
 };
 
