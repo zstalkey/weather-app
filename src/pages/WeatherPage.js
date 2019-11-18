@@ -7,8 +7,8 @@ import PageTemplate from '../components/templates/PageTemplate';
 const WeatherPage = ({ city, temperature, changeCity, forecast, ...props }) => {
     return (
         <PageTemplate city={city} temperature={temperature} changeCity={changeCity}>
-            <Forecast forecast={forecast} />;
-      <Link to="/complain">
+            <Forecast forecast={forecast} />
+            <Link to="/complain">
                 <TextLink>Complain about the weather!</TextLink>
             </Link>
         </PageTemplate>
