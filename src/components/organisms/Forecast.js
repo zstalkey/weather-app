@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { chunkify } from '../../utils';
 import DailyWeather from '../molecules/DailyWeather';
+import moment from 'moment';
 
 const Forecast = ({ forecast, ...props }) => {
     // Take forecast and split into equal chunks for each day.
@@ -22,7 +23,7 @@ const Forecast = ({ forecast, ...props }) => {
                     {i === 1 && <h2>Upcoming:</h2>}
                     <DailyWeather
                         key={day[0].dt}
-                        date={day[0].dt}
+                        date={moment(day[0].dt_txt).format('dddd, MMMM Do YYYY')}
                         icon={day[0].weather[0].icon}
                         maxTemp={getMaxTemp(day).main.temp}
                         minTemp={getMinTemp(day).main.temp}
